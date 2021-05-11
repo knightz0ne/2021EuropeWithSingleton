@@ -3,21 +3,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ContinentTest {
+class EuropeTest {
 
-    Continent europe;
+    Europe europe;
 
     @BeforeEach
     void init () {
-        europe = new Continent ("Europe");
-        europe.addCountry (new Country ("België", "BE"));
-        europe.addCountry (new Country ("Duitsland", "DE"));
-        europe.addCountry (new Country ("Frankrijk", "FR"));
+        europe = Europe.getInstance();
     }
 
     @Test
     void testBTWPercentages () {
         assertFalse (europe.isReverseChargeApplicable("CA"));
         assertTrue (europe.isReverseChargeApplicable("BE"));
+        assertFalse(europe.isReverseChargeApplicable("NE"));
     }
 }
